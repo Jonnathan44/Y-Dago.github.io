@@ -1,0 +1,217 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Évite les barres de défilement */
+}
+
+.cover-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.navbar {
+    position: absolute;
+    top: 20px; /* Distance depuis le haut de la page */
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center; /* Aligne verticalement les éléments */
+    padding: 0 30px; /* Espacement latéral ajusté */
+    z-index: 20; /* Assure que la navigation est au-dessus du slider */
+}
+
+.navbar .logo {
+    height: 50px; /* Augmente la hauteur du logo */
+    margin-right: 20px; /* Ajoute une marge à droite du logo pour l'espacer du bord */
+    margin-left: 80px;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px; /* Espacement entre les éléments de la liste */
+    flex: 1; /* Permet aux éléments de menu de prendre l'espace disponible */
+    justify-content: center; /* Centre les éléments de menu */
+    margin-left: 600px;
+    margin-top: 8px;
+}
+
+.navbar li {
+    margin: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #346e4f; /* Couleur du surlignage */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.navbar a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.contact-button {
+    background-color: #006884;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 200px;
+    margin-top: 5px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
+.contact-button:hover {
+    background-color: #004d6a;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    width: calc(100% * (totalSlides + 2)); /* Largeur totale incluant les clones */
+    height: 100%;
+    transition: transform 1s ease-in-out;
+}
+
+.slide {
+    flex: 1 0 100%; /* Chaque slide occupe 100% de la largeur */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre le conteneur .content */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    color: #fff;
+    text-align: center;
+    z-index: 10; /* Assure que le contenu est au-dessus du slider */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu horizontalement */
+    justify-content: center; /* Centre le contenu verticalement */
+}
+
+h1 {
+    font-size: 4.5em;
+    margin: 0;
+}
+
+.description {
+    display: flex;
+    flex-direction: column; /* Aligne les paragraphes verticalement */
+    margin: 20px 0;
+    font-size: 2.5em;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+}
+
+.description p {
+    margin: 0;
+    padding: 0 10px; /* Espacement horizontal entre les paragraphes */
+}
+
+.enter-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px; /* Augmentation de la largeur du bouton */
+    font-size: 1.5em;   /* Taille du texte du bouton */
+    color: #fff;
+    background-color: #006884; /* Couleur du bouton */
+    text-decoration: none;
+    border-radius: 5px;
+    min-width: 200px;  /* Largeur minimale pour le bouton */
+    text-align: center; /* Centre le texte dans le bouton */
+}
+
+.enter-button:hover {
+    background-color: #004a6b; /* Couleur plus sombre pour l'effet hover */
+}
+
+/* Styles pour les écrans plus petits */
+@media (max-width: 768px) {
+    .cover-page {
+        height: auto;
+    }
+
+    .navbar a {
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .description p {
+        font-size: 1em;
+    }
+
+    .enter-button {
+        padding: 8px 16px;
+        font-size: 1em;
+    }
+}
+
+/* Styles pour les très petits écrans */
+@media (max-width: 480px) {
+    .cover-page {
+        padding: 10px;
+    }
+
+    .navbar a {
+        font-size: 0.9em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .description p {
+        font-size: 0.9em;
+    }
+
+    .enter-button {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+}
